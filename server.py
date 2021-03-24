@@ -10,7 +10,7 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 server  = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 server.bind(ADDR)
 
-client = set()
+clients = set()
 client_lock = threading.lock()
 
 def handle_client(conn,addr):
