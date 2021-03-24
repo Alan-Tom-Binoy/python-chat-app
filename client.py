@@ -7,7 +7,7 @@ ADDR = (SERVER,PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
 
-def connect:
+def connect():
     client  = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     client.bind(ADDR)
     return client
@@ -15,3 +15,7 @@ def connect:
 def send(client,msg):
     message = msg.encode(FORMAT)
     client.send(message)
+
+client = connect()
+send( client,"Testing")
+
