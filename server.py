@@ -11,7 +11,7 @@ server  = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 server.bind(ADDR)
 
 clients = set()
-client_lock = threading.lock()
+client_lock = threading.Lock()
 
 def handle_client(conn,addr):
     print(f"[NEW CONNECTION] {addr} Connected")
