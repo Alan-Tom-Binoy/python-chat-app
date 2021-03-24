@@ -14,11 +14,9 @@ def connect():
     return client
 
 def start():
-    global connection
     connection = connect()
     while True:
         msg = connection.recv(1024).decode(FORMAT)
         print(msg)
 
 start()
-send(connection,DISCONNECT_MESSAGE)
