@@ -19,4 +19,4 @@ def send(client, msg):
     client.send(message)
 
 client = connect()
-send(client,"testing")
+send(client,"Testing")
