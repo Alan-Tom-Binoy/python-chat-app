@@ -13,10 +13,13 @@ def connect():
     client.connect(ADDR)
     return client
 
+
 def start():
+    global connection
     connection = connect()
     while True:
         msg = connection.recv(1024).decode(FORMAT)
         print(msg)
 
 start()
+
