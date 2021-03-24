@@ -31,7 +31,7 @@ def handle_client(conn,addr):
 
     finally:
         with client_lock:
-            client.remove(conn)
+            clients.remove(conn)
         conn.close()
 
 def start():
