@@ -1,10 +1,10 @@
-import threading
 import socket
+import time
 
 PORT = 5050
-SERVER = "localhost" #socket.gethostbyname(socket.gethostname())
-ADDR = (SERVER,PORT)
-FORMAT = 'utf-8'
+SERVER = "localhost"
+ADDR = (SERVER, PORT)
+FORMAT = "utf-8"
 DISCONNECT_MESSAGE = "!DISCONNECT"
 
 
@@ -18,5 +18,24 @@ def send(client, msg):
     message = msg.encode(FORMAT)
     client.send(message)
 
-client = connect()
-send(client,"Testing")
+
+def start():
+    answer = input('Would you like to connect (yes/no)? ')
+    if answer.lower() != 'yes':
+        return
+
+    connection = connect()
+    while True:
+        msg = input("Message (q for quit): ")
+
+        if msg == 'q':
+            break
+
+        send(connection, msg)
+
+    send(connection, DISCONNECT_MESSAGE)
+    time.sleep(1)
+    print('Disconnected')
+
+
+start()
